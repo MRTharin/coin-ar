@@ -1,33 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>1945 Coin AR</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        background: #000;
-      }
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    <model-viewer 
-    src="1945coinfinal.glb"
+<body>
+  <model-viewer 
+    id="coinViewer"
+    src="1945coinfinal.glb" 
     ar 
-    ar-modes="webxr scene-viewer quick-look"
-    auto-rotate 
-    auto-rotate-delay="0"
+    ar-modes="webxr scene-viewer quick-look" 
     camera-controls 
-    camera-orbit="0deg 90deg 100%"
-    shadow-intensity="1"
+    auto-rotate 
+    environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr"
     exposure="1.2"
-    environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr">
-    </model-viewer>
+    shadow-intensity="1"
+    style="width: 100vw; height: 100vh;">
+  </model-viewer>
 
-  </body>
-</html>
+  <button id="launchAR" style="
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background: gold;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 10;
+  ">
+    📱 Tap to View in AR
+  </button>
+
+  <script>
+    const modelViewer = document.getElementById('coinViewer');
+    const arButton = document.getElementById('launchAR');
+
+    arButton.addEventListener('click', () => {
+      modelViewer.enterAR();
+    });
+
+    // 🔁 Auto-launch AR on Android Chrome (optional)
+    if (/android/i.test(navigator.userAgent)) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          modelViewer.enterAR();
+        }, 1000); // Wait a moment for model to load
+      });
+    }
+  </script>
+</body>
