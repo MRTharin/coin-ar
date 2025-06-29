@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1945 Ceylon 5 Cents AR</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        background: #000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    <model-viewer 
-      src="coin_1945_final.glb" 
-      ar 
-      ar-modes="webxr scene-viewer quick-look" 
-      auto-rotate 
-      camera-controls 
-      shadow-intensity="1" 
-      environment-image="neutral">
-    </model-viewer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1945 Ceylon 5 Cents AR</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer 
+    src="1945coinfinal.glb" 
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    auto-rotate 
+    camera-controls 
+    shadow-intensity="1" 
+    exposure="1.2"
+    environment-image="https://modelviewer.dev/shared-assets/environments/neutral.hdr">
+  </model-viewer>
+</body>
 </html>
+
